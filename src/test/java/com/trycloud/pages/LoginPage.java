@@ -9,6 +9,8 @@ public class LoginPage extends BasePage {
     String userNameBoxXpath = "//input[@id='user']";
     String passwordBoxXpath = "//input[@id='password']";
     String logInButtonXpath = "//input[@id='submit-form']";
+    String warningMessageXpath = "//p[@class='warning wrongPasswordMsg']";
+    public String expectedMessage = "Wrong username or password.";
 
     public void login(){
         driver.findElement(By.xpath(userNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("username"));
@@ -16,6 +18,14 @@ public class LoginPage extends BasePage {
         driver.findElement(By.xpath(logInButtonXpath)).click();
     }
 
+    public void loginWithInvalidCredential(){
+        driver.findElement(By.xpath(userNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("username"));
+        driver.findElement(By.xpath(passwordBoxXpath)).sendKeys(ConfigurationReader.getProperty("invalidPassword"));
+        driver.findElement(By.xpath(logInButtonXpath)).click();
+    }
 
+    public String getActualMessage(){
+        return driver.findElement(By.xpath(warningMessageXpath)).getText();
+    }
 
 }

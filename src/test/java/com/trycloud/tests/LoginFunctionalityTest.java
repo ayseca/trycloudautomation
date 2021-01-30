@@ -1,6 +1,7 @@
 package com.trycloud.tests;
 
 import com.trycloud.pages.HomePage;
+import com.trycloud.pages.LoginPage;
 import com.trycloud.tests.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,4 +19,5 @@ public class LoginFunctionalityTest extends TestBase {
         Assert.assertEquals(actualURL, expectedURL, "You did not successfully login the homepage!");
 
     }
+
 }
