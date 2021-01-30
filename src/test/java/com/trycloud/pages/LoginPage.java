@@ -13,6 +13,7 @@ public class LoginPage extends BasePage {
     public String expectedMessage = "Wrong username or password.";
 
     public void login(){
+        //username box xpath
         driver.findElement(By.xpath(userNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("username"));
         driver.findElement(By.xpath(passwordBoxXpath)).sendKeys(ConfigurationReader.getProperty("password"));
         driver.findElement(By.xpath(logInButtonXpath)).click();
