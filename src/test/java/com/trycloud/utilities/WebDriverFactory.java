@@ -10,20 +10,19 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverFactory {
 
-   public static WebDriver getDriver() {
-      String browser = ConfigurationReader.getProperty("browser");
-      if (browser.equalsIgnoreCase("chrome")) {
+   public static WebDriver getDriver(String browserName) {
+      if (browserName.equalsIgnoreCase("chrome")) {
          WebDriverManager.chromedriver().setup();
          return new ChromeDriver();
-      } else if (browser.equalsIgnoreCase("safari")){
+      } else if (browserName.equalsIgnoreCase("safari")){
          return new SafariDriver();
-      } else if (browser.equalsIgnoreCase("firefox")){
+      } else if (browserName.equalsIgnoreCase("firefox")){
          WebDriverManager.firefoxdriver().setup();
          return new FirefoxDriver();
-      } else if (browser.equalsIgnoreCase("ie")){
+      } else if (browserName.equalsIgnoreCase("ie")){
          WebDriverManager.iedriver().setup();
          return new InternetExplorerDriver();
-      } else if (browser.equalsIgnoreCase("opera")){
+      } else if (browserName.equalsIgnoreCase("opera")){
          WebDriverManager.operadriver().setup();
          return new OperaDriver();
       }
