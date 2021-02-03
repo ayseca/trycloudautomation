@@ -8,9 +8,9 @@ public class LoginPage extends BasePage {
 
     String userNameBoxXpath = "//input[@id='user']";
     String passwordBoxXpath = "//input[@id='password']";
-    String logInButtonXpath = "//input[@id='submit-form']";
+    String logInButtonXpath = "//input[@id='submit']";
     String warningMessageXpath = "//p[@class='warning wrongPasswordMsg']";
-    public String expectedMessage = "Wrong username or password.";
+    public String expectedMessage = "Wrong password.";
 
     public void login(){
         //username box xpath
