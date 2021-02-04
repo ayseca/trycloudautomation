@@ -9,6 +9,7 @@ public class DeleteAFileOrFolder extends TestBase {
 
 @Test
     public void deleteFile(){
+
     DeletePage deletePage = new DeletePage();
     deletePage.DeleteFile();
     Assert.assertTrue(deletePage.fileDisplay());
