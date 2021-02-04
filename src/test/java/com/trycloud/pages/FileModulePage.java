@@ -33,6 +33,15 @@ public class FileModulePage extends BasePage { //Base page driver
     }
 
     public void uploadFile(){
+        /*
+        Web element file = driver.findElement(By.xpath("//div[@class='position-absolute bg-gray-dark rounded-2 text-white px-2 py-1 left-0 bottom-0 ml-2 mb-2']")).click(); //link text locator for uploading a photo..
+        WebElement addFile = driver.findElement(By.linkText("Upload a photo...")).click();
+        Mention the own path of the file location
+        Add file method
+        addFile.sendKeys("D:\Big Data on AWS\Images\caps.jpeg");// For setting a profile picture
+        driver.findElement(By.linkText("Set new profile picture")).click();
+        Thread.sleep(2000);// Image name can be of your choice
+         */
         driver.findElement(By.xpath(fileIconXpath)).click();
         driver.findElement(By.xpath(plusButtonXpath)).click();
         driver.findElement(By.xpath(uploadFileButtonXpath)).click();
