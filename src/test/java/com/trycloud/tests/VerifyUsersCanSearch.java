@@ -10,13 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class VerifyUsersCanSearch extends TestBase {
-    @BeforeMethod
-    public void setupMethod() {
-        super.setUpMethod();
-    }
 
     @Test
-    public void verfify_search() {
+    public void verify_search() {
         //search any thing
         WebElement searchItem = driver.findElement(By.id("searchbox"));
         searchItem.sendKeys("user1", Keys.ENTER);
