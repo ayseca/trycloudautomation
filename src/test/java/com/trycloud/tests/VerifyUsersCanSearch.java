@@ -21,6 +21,7 @@ public class VerifyUsersCanSearch extends TestBase {
         WebElement searchWindow = driver.findElement(By.xpath("//h2[@class='empty-content__title']"));
         String actualResult = searchWindow.getText();
         Assert.assertTrue(actualResult.contains(expectedResult));
+        //....
     }
 
 
