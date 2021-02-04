@@ -19,6 +19,8 @@ public class FileModulePage extends BasePage { //Base page driver
     String newFolderPlusIcon = "//span[@class='icon icon-add']";
     String uploadFileInsideFolder = "//span[.='Upload file']";
     String nestedFile = "//span[.='2020-11-20 (13)']";
+    String settingButton = "//button[@class='settings-button']";
+    String anyButton = "//input[@id='showRichWorkspacesToggle']";
 
 
 
@@ -75,6 +77,15 @@ public class FileModulePage extends BasePage { //Base page driver
 
     public boolean nestedFolderIsDisplayed(){
         return driver.findElement(By.xpath(nestedFile)).isDisplayed();
+    }
+
+    public void clickSettingsOptions(){
+        driver.findElement(By.xpath(settingButton)).click();
+        driver.findElement(By.xpath(anyButton)).click();
+    }
+
+    public boolean isAnyButtonSelected(){
+        return driver.findElement(By.xpath(anyButton)).isSelected();
     }
 
 

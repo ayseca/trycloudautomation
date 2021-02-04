@@ -9,7 +9,6 @@ public class FileModuleFunctionality extends TestBase {
 
     FileModulePage file = new FileModulePage();
 
-
     @Test
     public void removeFile(){
         file.removeFileFromFavorite();
@@ -32,6 +31,12 @@ public class FileModuleFunctionality extends TestBase {
     public void uploadFileInsideFolder(){
         file.uploadFileInsideFolder();
         Assert.assertTrue(file.nestedFolderIsDisplayed());
+    }
+
+    @Test
+    public void changeTheAppSettings(){
+        file.clickSettingsOptions();
+        Assert.assertTrue(file.isAnyButtonSelected());
     }
 
 
