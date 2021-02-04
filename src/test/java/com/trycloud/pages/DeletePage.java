@@ -1,8 +1,9 @@
-package com.trycloud.pages.base;
+package com.trycloud.pages;
 
+import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
 
-public class DeletePage extends BasePage{
+public class DeletePage extends BasePage {
 
     String actionIconXpath = "//a[@class='action action-menu permanent']";
     String deleteFileOption ="//a[@href='nav-icon-trashbin svg active]";

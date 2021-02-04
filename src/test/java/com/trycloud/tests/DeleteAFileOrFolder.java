@@ -1,10 +1,11 @@
-package com.trycloud.tests.base;
+package com.trycloud.tests;
 
-import com.trycloud.pages.base.DeletePage;
+import com.trycloud.pages.DeletePage;
+import com.trycloud.tests.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DeleteAFileOrFolder extends TestBase{
+public class DeleteAFileOrFolder extends TestBase {
 
 @Test
     public void deleteFile(){
