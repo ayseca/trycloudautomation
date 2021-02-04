@@ -2,6 +2,7 @@ package com.trycloud.pages;
 
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class FileModulePage extends BasePage { //Base page driver
@@ -16,6 +17,13 @@ public class FileModulePage extends BasePage { //Base page driver
     String inputBoxXpath = "//input[@id='view13-input-folder']";
     String submitXpath = "(//input[@type='submit'])[2]";
     String folderName = "//span[text()='new folder']";
+    String newFolderPlusIcon = "//span[@class='icon icon-add']";
+    String uploadFileInsideFolder = "//span[.='Upload file']";
+    String nestedFile = "//span[.='2020-11-20 (13)']";
+    String settingButton = "//button[@class='settings-button']";
+    String anyButton = "//input[@id='showRichWorkspacesToggle']";
+    WebElement storageUsage = driver.findElement(By.xpath("//p[.='583 KB used']"));
+
 
 
     public void removeFileFromFavorite(){
@@ -44,9 +52,8 @@ public class FileModulePage extends BasePage { //Base page driver
          */
         driver.findElement(By.xpath(fileIconXpath)).click();
         driver.findElement(By.xpath(plusButtonXpath)).click();
-        driver.findElement(By.xpath(uploadFileButtonXpath)).click();
+        driver.findElement(By.xpath(uploadFileButtonXpath)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (5)");
     }
-
 
     public boolean fileIsDisplayed(){
         return driver.findElement(By.xpath(fileNameXpath)).isDisplayed();
@@ -64,10 +71,53 @@ public class FileModulePage extends BasePage { //Base page driver
         return driver.findElement(By.xpath(folderName)).isDisplayed();
     }
 
+    public void uploadFileInsideFolder(){
+        driver.findElement(By.xpath(newFolderXpath)).click();
+        driver.findElement(By.xpath(newFolderPlusIcon)).click();
+        driver.findElement(By.xpath(uploadFileInsideFolder)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (13)");
+    }
 
+    public boolean nestedFolderIsDisplayed(){
+        return driver.findElement(By.xpath(nestedFile)).isDisplayed();
+    }
 
+    public void clickSettingsOptions(){
+        driver.findElement(By.xpath(settingButton)).click();
+        driver.findElement(By.xpath(anyButton)).click();
+    }
 
+    public boolean isAnyButtonSelected(){
+        return driver.findElement(By.xpath(anyButton)).isSelected();
+    }
 
+    public boolean storageUsage(){
+        driver.findElement(By.xpath(fileIconXpath)).click();
+        String storage = storageUsage.getText();
+        StringBuilder beforeUpload = new StringBuilder();
 
+        for (Character each : storage.toCharArray()) {
+            if (Character.isDigit(each)) {
+                beforeUpload.append(each);
+            }
+        }
+
+        int before = Integer.parseInt(String.valueOf(beforeUpload));
+
+        uploadFile();
+
+        driver.navigate().refresh();
+
+        StringBuilder afterUpload = new StringBuilder();
+
+        for (Character each : storage.toCharArray()){
+            if (Character.isDigit(each)) {
+                afterUpload.append(each);
+            }
+        }
+
+        int after = Integer.parseInt(String.valueOf(afterUpload));
+
+        return after>before;
+    }
 
 }

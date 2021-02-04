@@ -7,26 +7,41 @@ import org.testng.annotations.Test;
 
 public class FileModuleFunctionality extends TestBase {
 
+    FileModulePage file = new FileModulePage();
 
     @Test
     public void removeFile(){
-        FileModulePage file = new FileModulePage();
         file.removeFileFromFavorite();
         Assert.assertTrue(file.starIconDisplayed());
     }
 
     @Test
     public void uploadFile(){
-        FileModulePage file = new FileModulePage();
         file.uploadFile();
         Assert.assertTrue(file.fileIsDisplayed());
     }
 
     @Test
     public void uploadFolder(){
-        FileModulePage file = new FileModulePage();
         file.createNewFolder();
         Assert.assertTrue(file.folderIsDisplayed());
+    }
+
+    @Test
+    public void uploadFileInsideFolder(){
+        file.uploadFileInsideFolder();
+        Assert.assertTrue(file.nestedFolderIsDisplayed());
+    }
+
+    @Test
+    public void changeTheAppSettings(){
+        file.clickSettingsOptions();
+        Assert.assertTrue(file.isAnyButtonSelected());
+    }
+
+    @Test
+    public void StorageIncreased(){
+        Assert.assertTrue(file.storageUsage());
     }
 
 
