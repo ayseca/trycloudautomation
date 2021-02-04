@@ -14,9 +14,6 @@ public class DeleteAFileOrFolder extends TestBase {
     deletePage.DeleteFile();
     Assert.assertTrue(deletePage.fileDisplay());
 
-
-
-
     }
 
 
