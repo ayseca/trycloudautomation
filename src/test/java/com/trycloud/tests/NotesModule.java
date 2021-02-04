@@ -12,17 +12,10 @@ import org.testng.annotations.Test;
 
 public class NotesModule extends TestBase {
 
-       @BeforeMethod
-
-       public void setUpMethod(){
-        super.setUpMethod();
-    }
     @Test
-
-    public  void noteModuleTest(){
+    public void noteModuleTest(){
         AllFilesPage notes = new AllFilesPage();
-        Assert.assertEquals(notes.notesGetActualTitle(),notes.expectedTitleNotes,"We dont have access to notes ");
-
+        Assert.assertEquals(notes.notesGetActualTitle(),notes.expectedTitleNotes,"We don't have access to notes ");
 
     }
     @Test
@@ -37,13 +30,5 @@ public class NotesModule extends TestBase {
         //Typing a message to the Note
         writeNote.sendKeys("New Note", Keys.ENTER );
     }
-    @AfterMethod
-    public void tearDown() {
-        super.tearDown();
-    }
-
-
-
-
 
 }
