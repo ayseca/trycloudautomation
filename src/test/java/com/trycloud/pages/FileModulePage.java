@@ -16,6 +16,10 @@ public class FileModulePage extends BasePage { //Base page driver
     String inputBoxXpath = "//input[@id='view13-input-folder']";
     String submitXpath = "(//input[@type='submit'])[2]";
     String folderName = "//span[text()='new folder']";
+    String newFolderPlusIcon = "//span[@class='icon icon-add']";
+    String uploadFileInsideFolder = "//span[.='Upload file']";
+    String nestedFile = "//span[.='2020-11-20 (13)']";
+
 
 
     public void removeFileFromFavorite(){
@@ -44,9 +48,8 @@ public class FileModulePage extends BasePage { //Base page driver
          */
         driver.findElement(By.xpath(fileIconXpath)).click();
         driver.findElement(By.xpath(plusButtonXpath)).click();
-        driver.findElement(By.xpath(uploadFileButtonXpath)).click();
+        driver.findElement(By.xpath(uploadFileButtonXpath)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (5)");
     }
-
 
     public boolean fileIsDisplayed(){
         return driver.findElement(By.xpath(fileNameXpath)).isDisplayed();
@@ -62,6 +65,16 @@ public class FileModulePage extends BasePage { //Base page driver
 
     public boolean folderIsDisplayed(){
         return driver.findElement(By.xpath(folderName)).isDisplayed();
+    }
+
+    public void uploadFileInsideFolder(){
+        driver.findElement(By.xpath(newFolderXpath)).click();
+        driver.findElement(By.xpath(newFolderPlusIcon)).click();
+        driver.findElement(By.xpath(uploadFileInsideFolder)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (13)");
+    }
+
+    public boolean nestedFolderIsDisplayed(){
+        return driver.findElement(By.xpath(nestedFile)).isDisplayed();
     }
 
 
