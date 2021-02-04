@@ -39,6 +39,11 @@ public class FileModuleFunctionality extends TestBase {
         Assert.assertTrue(file.isAnyButtonSelected());
     }
 
+    @Test
+    public void StorageIncreased(){
+        Assert.assertTrue(file.storageUsage());
+    }
+
 
 
 

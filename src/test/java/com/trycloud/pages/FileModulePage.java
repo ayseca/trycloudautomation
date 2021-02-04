@@ -2,6 +2,7 @@ package com.trycloud.pages;
 
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class FileModulePage extends BasePage { //Base page driver
@@ -21,6 +22,7 @@ public class FileModulePage extends BasePage { //Base page driver
     String nestedFile = "//span[.='2020-11-20 (13)']";
     String settingButton = "//button[@class='settings-button']";
     String anyButton = "//input[@id='showRichWorkspacesToggle']";
+    WebElement storageUsage = driver.findElement(By.xpath("//p[.='583 KB used']"));
 
 
 
@@ -88,10 +90,34 @@ public class FileModulePage extends BasePage { //Base page driver
         return driver.findElement(By.xpath(anyButton)).isSelected();
     }
 
+    public boolean storageUsage(){
+        driver.findElement(By.xpath(fileIconXpath)).click();
+        String storage = storageUsage.getText();
+        StringBuilder beforeUpload = new StringBuilder();
 
+        for (Character each : storage.toCharArray()) {
+            if (Character.isDigit(each)) {
+                beforeUpload.append(each);
+            }
+        }
 
+        int before = Integer.parseInt(String.valueOf(beforeUpload));
 
+        uploadFile();
 
+        driver.navigate().refresh();
 
+        StringBuilder afterUpload = new StringBuilder();
+
+        for (Character each : storage.toCharArray()){
+            if (Character.isDigit(each)) {
+                afterUpload.append(each);
+            }
+        }
+
+        int after = Integer.parseInt(String.valueOf(afterUpload));
+
+        return after>before;
+    }
 
 }
