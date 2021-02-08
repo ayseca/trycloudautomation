@@ -23,8 +23,9 @@ public class VerifyUsersCanSearch extends TestBase {
         WebElement searchItem = driver.findElement(By.xpath("//input[@class='unified-search__form-input']"));
         String searchValue = "readme";
         searchItem.sendKeys(searchValue + Keys.ENTER);
-String actualresult=driver.getTitle();
-String expectedResult=searchValue;
+
+
+Assert.assertTrue(driver.findElement(By.xpath("//h3[@class='unified-search__result-line-one']")).isDisplayed());
     }
 
 
