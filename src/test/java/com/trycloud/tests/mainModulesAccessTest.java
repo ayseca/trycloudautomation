@@ -33,17 +33,17 @@ public class mainModulesAccessTest extends TestBase {
 
         String expectedTitleGallery = allModules.expectedTitleGallery;
         String galleryGetActualTitle = allModules.galleryGetActualTitle();
-        Assert.assertEquals(galleryGetActualTitle,expectedTitleGallery, "We have access to Gallery");
+        Assert.assertFalse(Boolean.parseBoolean(galleryGetActualTitle),expectedTitleGallery);
 
     }
     @Test
-    public void verifyMainModulesAccessTalk(){
+    public void verifyMainModulesAccessTalk()  {
 
         AllFilesPage allModules = new AllFilesPage();
 
         String expectedTitleTalk = allModules.expectedTitleTalk;
         String talkGetActualTitle = allModules.talkGetActualTitle();
-        Assert.assertEquals(talkGetActualTitle,expectedTitleTalk, "We have access to Talk");
+        Assert.assertEquals(talkGetActualTitle,expectedTitleTalk);
 
     }
     @Test
@@ -54,6 +54,26 @@ public class mainModulesAccessTest extends TestBase {
         String expectedTitleCalendar = allModules.expectedTitleCalendar;
         String calendarGetActualTitle = allModules.calendarGetActualTitle();
         Assert.assertEquals(calendarGetActualTitle,expectedTitleCalendar, "We have access to Calendar");
+
+    }
+    @Test
+    public void verifyMainModulesAccessContacts(){
+
+        AllFilesPage allModules = new AllFilesPage();
+
+        String expectedTitleContacts = allModules.expectedTitleContacts;
+        String contactsGetActualTitle = allModules.contactsGetActualTitle();
+        Assert.assertEquals(contactsGetActualTitle,expectedTitleContacts, "We have access to Contacts");
+
+    }
+    @Test
+    public void verifyMainModulesAccessDeck(){
+
+        AllFilesPage allModules = new AllFilesPage();
+
+        String expectedTitleDeck = allModules.expectedTitleDeck;
+        String deckGetActualTitle = allModules.deckGetActualTitle();
+        Assert.assertEquals(deckGetActualTitle,expectedTitleDeck, "We have access to Deck");
 
     }
 
