@@ -21,7 +21,7 @@ public class ContactModuleTest extends TestBase {
 
         ContactPage contactPage = new ContactPage();
 
-        contactModule.ContactModule();
+        //contactModule.ContactModule();
 
         contactPage.click();
 

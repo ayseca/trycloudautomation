@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     public WebElement warningMessage;
 
     public void login(){
+
         inputUserName.sendKeys(ConfigurationReader.getProperty("username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
         loginButton.click();
