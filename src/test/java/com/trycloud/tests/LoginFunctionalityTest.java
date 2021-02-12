@@ -20,5 +20,4 @@ public class LoginFunctionalityTest extends TestBase {
         Assert.assertEquals(actualURL, expectedURL, "You did not successfully login the homepage!");
 
     }
-
 }
