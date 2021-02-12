@@ -17,9 +17,10 @@ public class WriteCommentPage extends BasePage{
     public WebElement actionIcon;
 
 
-    @FindBy(xpath = "//*[@id='fileList']/tr[4]/td[2]/div/ul/li[4]/a")
+    @FindBy(xpath = "//li[@class=' action-details-container']")
     public WebElement detail;
-    //*[@id="fileList"]/tr[2]/td[2]/div/ul/li[4]/a
+    //*[@id="fileList"]/tr[2]/td[2]/div/ul/li[4]
+    //*[@id="fileList"]/tr[2]/td[2]/div/ul/li[4]
 
     @FindBy(xpath = "//*[@id='commentsTabView']")
     public WebElement commentsTab;

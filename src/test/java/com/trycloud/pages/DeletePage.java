@@ -16,10 +16,17 @@ public class DeletePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='fileList']/tr[1]/td[2]/a/span[2]/a[2]")
             public WebElement actionIcon;
-   @FindBy(xpath="//*[@id='fileList']/tr[1]/td[2]/div/ul/li[8]/a")
+    //*[@id="fileList"]/tr[4]/td[2]/a/span[2]/a[2]
+
+   @FindBy(xpath="//*[@id='fileList']/tr[1]/td[2]/div/ul/li[8]")
            public WebElement deleteFile;
+    //*[@id="fileList"]/tr[4]/td[2]/div/ul/li[8]/a
+
+
     @FindBy(xpath = "//*[@id='app-navigation']/ul/li[7]/a")
            public WebElement deletedFilesModule;
+    //*[@id="app-navigation"]/ul/li[7]/a
+
 
     public void DeleteFile(){
         fileModule.click();
