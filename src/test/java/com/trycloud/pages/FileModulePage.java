@@ -3,41 +3,76 @@ package com.trycloud.pages;
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class FileModulePage extends BasePage { //Base page driver
-    String fileIconXpath = "(//a[@href='/index.php/apps/files/'])[1]";
-    String actionIconXpath = "//a[@class='action action-menu permanent']";
-    String starIconXpath = "//a[@class='menuitem action action-favorite permanent']/span[1]";
-    String starIconOnTopOfFile = "//div[@class='favorite-mark permanent']/span[1]";
-    String plusButtonXpath = "//a[@class='button new']";
-    String uploadFileButtonXpath = "(//*[@class='menuitem'])[1]";
-    String fileNameXpath = "//span[text()='3434']";
-    String newFolderXpath = "//span[text()='New folder']";
-    String inputBoxXpath = "//input[@id='view13-input-folder']";
-    String submitXpath = "(//input[@type='submit'])[2]";
-    String folderName = "//span[text()='new folder']";
-    String newFolderPlusIcon = "//span[@class='icon icon-add']";
-    String uploadFileInsideFolder = "//span[.='Upload file']";
-    String nestedFile = "//span[.='2020-11-20 (13)']";
-    String settingButton = "//button[@class='settings-button']";
-    String anyButton = "//input[@id='showRichWorkspacesToggle']";
-    WebElement storageUsage = driver.findElement(By.xpath("//p[.='583 KB used']"));
+    @FindBy(xpath = "(//a[@href='/index.php/apps/files/'])[1]")
+    public WebElement fileIconXpath;
+
+    @FindBy(xpath = "//a[@class='action action-menu permanent']")
+    public WebElement actionIconXpath;
+
+    @FindBy(xpath = "//a[@class='menuitem action action-favorite permanent']/span[1]")
+    public WebElement starIconXpath;
+
+    @FindBy(xpath = "//div[@class='favorite-mark permanent']/span[1]")
+    public WebElement starIconOnTopOfFile;
+
+    @FindBy(xpath = "//a[@class='button new']")
+    public WebElement plusButtonXpath;
+
+    @FindBy(xpath = "(//*[@class='menuitem'])[1]")
+    public WebElement uploadFileButtonXpath ;
+
+    @FindBy(xpath = "//span[text()='3434']")
+    public WebElement fileNameXpath ;
+
+    @FindBy(xpath = "//span[text()='New folder']")
+    public WebElement newFolderXpath ;
+
+    @FindBy(xpath = "//input[@id='view13-input-folder']")
+    public WebElement inputBoxXpath ;
+
+    @FindBy(xpath = "(//input[@type='submit'])[2]")
+    public WebElement submitXpath ;
+
+    @FindBy(xpath = "//span[text()='new folder']")
+    public WebElement folderName ;
+
+    @FindBy(xpath = "//span[@class='icon icon-add']")
+    public WebElement newFolderPlusIcon ;
+
+    @FindBy(xpath = "//span[.='Upload file']")
+    public WebElement uploadFileInsideFolder ;
+
+    @FindBy(xpath = "//span[.='2020-11-20 (13)']")
+    public WebElement nestedFile ;
+
+    @FindBy(xpath = "//button[@class='settings-button']")
+    public WebElement settingButton ;
+
+    @FindBy(xpath = "//input[@id='showRichWorkspacesToggle']")
+    public WebElement anyButton ;
+
+    @FindBy(xpath = "//p[.='583 KB used']")
+    public WebElement storageUsage ;
+
 
 
 
     public void removeFileFromFavorite(){
-        driver.findElement(By.xpath(fileIconXpath)).click();
-        driver.findElement(By.xpath(actionIconXpath)).click();
-        driver.findElement(By.xpath(starIconXpath)).click();
+        fileIconXpath.click();
+        actionIconXpath.click();
+        starIconXpath.click();
 
-        driver.findElement(By.xpath(actionIconXpath)).click();
-        driver.findElement(By.xpath(starIconXpath)).click();
+        actionIconXpath.click();
+        starIconXpath.click();
 
     }
 
     public boolean starIconDisplayed(){
-        return  driver.findElement(By.xpath(starIconOnTopOfFile)).isDisplayed();
+        return  starIconOnTopOfFile.isDisplayed();
     }
 
     public void uploadFile(){
@@ -50,48 +85,48 @@ public class FileModulePage extends BasePage { //Base page driver
         driver.findElement(By.linkText("Set new profile picture")).click();
         Thread.sleep(2000);// Image name can be of your choice
          */
-        driver.findElement(By.xpath(fileIconXpath)).click();
-        driver.findElement(By.xpath(plusButtonXpath)).click();
-        driver.findElement(By.xpath(uploadFileButtonXpath)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (5)");
+        fileIconXpath.click();
+        plusButtonXpath.click();
+        uploadFileButtonXpath.sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (5)");
     }
 
     public boolean fileIsDisplayed(){
-        return driver.findElement(By.xpath(fileNameXpath)).isDisplayed();
+        return fileNameXpath.isDisplayed();
     }
 
     public void createNewFolder(){
-        driver.findElement(By.xpath(fileIconXpath)).click();
-        driver.findElement(By.xpath(plusButtonXpath)).click();
-        driver.findElement(By.xpath(newFolderXpath)).click();
-        driver.findElement(By.xpath(inputBoxXpath)).sendKeys("folder1");
-        driver.findElement(By.xpath(submitXpath)).click();
+        fileIconXpath.click();
+        plusButtonXpath.click();
+        newFolderXpath.click();
+        inputBoxXpath.sendKeys("folder1");
+        submitXpath.click();
     }
 
     public boolean folderIsDisplayed(){
-        return driver.findElement(By.xpath(folderName)).isDisplayed();
+        return folderName.isDisplayed();
     }
 
     public void uploadFileInsideFolder(){
-        driver.findElement(By.xpath(newFolderXpath)).click();
-        driver.findElement(By.xpath(newFolderPlusIcon)).click();
-        driver.findElement(By.xpath(uploadFileInsideFolder)).sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (13)");
+        newFolderXpath.click();
+        newFolderPlusIcon.click();
+        uploadFileInsideFolder.sendKeys("C:\\Users\\ayshe\\OneDrive\\Pictures\\Ekran Görüntüleri\\2020-11-20 (13)");
     }
 
     public boolean nestedFolderIsDisplayed(){
-        return driver.findElement(By.xpath(nestedFile)).isDisplayed();
+        return nestedFile.isDisplayed();
     }
 
     public void clickSettingsOptions(){
-        driver.findElement(By.xpath(settingButton)).click();
-        driver.findElement(By.xpath(anyButton)).click();
+        settingButton.click();
+        anyButton.click();
     }
 
     public boolean isAnyButtonSelected(){
-        return driver.findElement(By.xpath(anyButton)).isSelected();
+        return anyButton.isSelected();
     }
 
     public boolean storageUsage(){
-        driver.findElement(By.xpath(fileIconXpath)).click();
+        fileIconXpath.click();
         String storage = storageUsage.getText();
         StringBuilder beforeUpload = new StringBuilder();
 
