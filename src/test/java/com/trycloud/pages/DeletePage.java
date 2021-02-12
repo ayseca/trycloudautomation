@@ -28,7 +28,7 @@ public class DeletePage extends BasePage {
     //*[@id="app-navigation"]/ul/li[7]/a
 
 
-    public void DeleteFile(){
+    public void DeleteFile()  {
         fileModule.click();
         actionIcon.click();
         deleteFile.click();

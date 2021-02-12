@@ -1,6 +1,6 @@
 package com.trycloud.tests.base;
 
-import com.trycloud.pages.base.WriteCommentPage;
+import com.trycloud.pages.WriteCommentPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

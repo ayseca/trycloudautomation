@@ -1,12 +1,13 @@
-package com.trycloud.pages.base;
+package com.trycloud.pages;
 
+import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class WriteCommentPage extends BasePage{
+public class WriteCommentPage extends BasePage {
     public WriteCommentPage(){
         PageFactory.initElements(driver,this);
     }
