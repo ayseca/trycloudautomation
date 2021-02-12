@@ -5,15 +5,20 @@ import com.trycloud.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
+    public LoginPage(){
+        PageFactory.initElements(driver, this);
+    }
+
     public String expectedMessage = "Wrong username or password.";
 
-    @FindBy(xpath = "//input[@id='user']")
+    @FindBy(id = "user")
     public WebElement inputUserName;
 
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(id = "password")
     public WebElement inputPassword;
 
     @FindBy(xpath = "//input[@id='submit-form']")
