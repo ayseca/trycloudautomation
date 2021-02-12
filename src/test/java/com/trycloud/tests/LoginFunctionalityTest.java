@@ -10,6 +10,7 @@ public class LoginFunctionalityTest extends TestBase {
 
     @Test
     public void loginSuccessfully(){
+        //comment
 
         HomePage homePage = new HomePage();
 
@@ -19,5 +20,4 @@ public class LoginFunctionalityTest extends TestBase {
         Assert.assertEquals(actualURL, expectedURL, "You did not successfully login the homepage!");
 
     }
-
 }

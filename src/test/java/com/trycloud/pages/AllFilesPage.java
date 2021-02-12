@@ -3,6 +3,7 @@ package com.trycloud.pages;
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
 
+
 public class AllFilesPage extends BasePage {
     public String expectedTitleFiles="Files - Trycloud QA";
     public String expectedTitleActivities="Activity - Trycloud QA";
@@ -12,10 +13,19 @@ public class AllFilesPage extends BasePage {
     public String expectedTitleDeck="Deck - Trycloud QA";
     public String expectedTitleContacts="Contacts - Trycloud QA";
 
-    public String filesGetActualTitle(){
+ 
+    public String notesGetActualTitle() {
+        driver.findElement(By.xpath("//*[@id='appmenu']/li[7]")).click();
+
+        return driver.getTitle();
+    }
+
+    public String filesGetActualTitle() {
+
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/files/']")).click();
         return driver.getTitle();
     }
+
 
     public String activityGetActualTitle(){
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/activity/']")).click();
@@ -25,14 +35,8 @@ public class AllFilesPage extends BasePage {
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/photos/']")).click();
         return driver.getTitle();
     }
-    public String talkGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='http://qa2.trycloud.net/index.php/apps/spreed/']")).click();
-        return driver.getTitle();
-    }
-    public String calendarGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/calendar/']")).click();
-        return driver.getTitle();
-    }
+ 
+ 
     public String contactsGetActualTitle(){
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/contacts/']")).click();
         return driver.getTitle();
@@ -41,4 +45,16 @@ public class AllFilesPage extends BasePage {
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/deck/']")).click();
         return driver.getTitle();
     }
+
+
+    public String talkGetActualTitle() {
+        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/spreed/']")).click();
+        return driver.getTitle();
+    }
+
+    public String calendarGetActualTitle() {
+        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/calendar/']")).click();
+        return driver.getTitle();
+    }
+
 }
