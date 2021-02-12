@@ -3,30 +3,40 @@ package com.trycloud.pages;
 import com.trycloud.pages.base.BasePage;
 import com.trycloud.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    String userNameBoxXpath = "//input[@id='user']";
-    String passwordBoxXpath = "//input[@id='password']";
-    String logInButtonXpath = "//input[@id='submit-form']";
-    String warningMessageXpath = "//p[@class='warning wrongPasswordMsg']";
     public String expectedMessage = "Wrong username or password.";
+
+    @FindBy(xpath = "//input[@id='user']")
+    public WebElement inputUserName;
+
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement inputPassword;
+
+    @FindBy(xpath = "//input[@id='submit-form']")
+    public WebElement loginButton;
+
+    @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
+    public WebElement warningMessage;
 
     public void login(){
         //username box xpath
-        driver.findElement(By.xpath(userNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("username"));
-        driver.findElement(By.xpath(passwordBoxXpath)).sendKeys(ConfigurationReader.getProperty("password"));
-        driver.findElement(By.xpath(logInButtonXpath)).click();
+        inputUserName.sendKeys(ConfigurationReader.getProperty("username"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+        loginButton.click();
     }
 
     public void loginWithInvalidCredential(){
-        driver.findElement(By.xpath(userNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("username"));
-        driver.findElement(By.xpath(passwordBoxXpath)).sendKeys(ConfigurationReader.getProperty("invalidPassword"));
-        driver.findElement(By.xpath(logInButtonXpath)).click();
+        inputUserName.sendKeys(ConfigurationReader.getProperty("username"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("invalidPassword"));
+        loginButton.click();
     }
 
     public String getActualMessage(){
-        return driver.findElement(By.xpath(warningMessageXpath)).getText();
+        return warningMessage.getText();
     }
 
 }
