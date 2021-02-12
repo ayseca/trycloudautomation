@@ -5,21 +5,23 @@ import org.openqa.selenium.By;
 
 public class DeletePage extends BasePage {
 
-    String actionIconXpath = "//a[@class='action action-menu permanent']";
-    String deleteFileOption ="//a[@href='nav-icon-trashbin svg active]";
-    String deleteCheckBox ="//input[@type='checkbox']";
-    String deletedFile ="//span[@class='innernametext']";
+    String fileModule = "//body//div//a[@href='/index.php/apps/files/']";
+    String actionIcon ="//*[@id='fileList']/tr[1]/td[2]/a/span[2]/a[2]";
+    String deleteFile ="//*[@id='fileList']/tr[1]/td[2]/div/ul/li[8]/a";
+    String deletedFilesModule ="//*[@id='app-navigation']/ul/li[7]/a";
 
     public void DeleteFile(){
-        driver.findElement(By.xpath(actionIconXpath)).click();
-        driver.findElement(By.xpath(deleteFileOption)).click();
-        driver.findElement(By.xpath(deleteCheckBox)).click();
+        driver.findElement(By.xpath(fileModule)).click();
+        driver.findElement(By.xpath(actionIcon)).click();
+        driver.findElement(By.xpath(deleteFile)).click();
+        driver.findElement(By.xpath(deletedFilesModule)).click();
 
 
     }
 
     public boolean fileDisplay(){
-        return driver.findElement(By.xpath(deletedFile)).isDisplayed();
+
+        return driver.findElement(By.xpath(deletedFilesModule)).isDisplayed();
     }
 
 
