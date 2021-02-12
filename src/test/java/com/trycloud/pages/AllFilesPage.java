@@ -2,18 +2,18 @@ package com.trycloud.pages;
 
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 
 public class AllFilesPage extends BasePage {
-    public String expectedTitleFiles = "Files - Trycloud";
-    public String expectedTitleActivities = "Activity - Trycloud";
-    public String expectedTitleGallery = "Gallery - Trycloud";
-    public String expectedTitleTalk = "Talk - Trycloud";
-    public String expectedTitleCalendar = "Calendar - Trycloud";
-    public String expectedTitleDeck = "Deck - Trycloud";
-    public String expectedTitleAnnouncements = "Announcements - Trycloud";
-    public String expectedTitleNotes = "Notes - Trycloud - QA";
+    public String expectedTitleFiles="Files - Trycloud QA";
+    public String expectedTitleActivities="Activity - Trycloud QA";
+    public String expectedTitleGallery="Gallery - Tryclou ";
+    public String expectedTitleTalk="Talk - Trycloud QA";
+    public String expectedTitleCalendar="February 2021 - Calendar - Trycloud QA";
+    public String expectedTitleDeck="Deck - Trycloud QA";
+    public String expectedTitleContacts="Contacts - Trycloud QA";
 
+ 
     public String notesGetActualTitle() {
         driver.findElement(By.xpath("//*[@id='appmenu']/li[7]")).click();
 
@@ -21,19 +21,31 @@ public class AllFilesPage extends BasePage {
     }
 
     public String filesGetActualTitle() {
+
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/files/']")).click();
         return driver.getTitle();
     }
 
-    public String activityGetActualTitle() {
+
+    public String activityGetActualTitle(){
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/activity/']")).click();
         return driver.getTitle();
     }
-
-    public String galleryGetActualTitle() {
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/gallery/']")).click();
+    public String galleryGetActualTitle(){
+        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/photos/']")).click();
         return driver.getTitle();
     }
+ 
+ 
+    public String contactsGetActualTitle(){
+        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/contacts/']")).click();
+        return driver.getTitle();
+    }
+    public String deckGetActualTitle(){
+        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/deck/']")).click();
+        return driver.getTitle();
+    }
+
 
     public String talkGetActualTitle() {
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/spreed/']")).click();
@@ -44,4 +56,5 @@ public class AllFilesPage extends BasePage {
         driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/calendar/']")).click();
         return driver.getTitle();
     }
+
 }
