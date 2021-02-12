@@ -2,7 +2,6 @@ package com.trycloud.pages;
 
 import com.trycloud.pages.base.BasePage;
 import com.trycloud.utilities.ConfigurationReader;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,7 +27,6 @@ public class LoginPage extends BasePage {
     public WebElement warningMessage;
 
     public void login(){
-        //username box xpath
         inputUserName.sendKeys(ConfigurationReader.getProperty("username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
         loginButton.click();

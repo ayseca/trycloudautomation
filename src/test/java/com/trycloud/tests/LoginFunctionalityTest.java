@@ -10,6 +10,7 @@ public class LoginFunctionalityTest extends TestBase {
 
     @Test
     public void loginSuccessfully(){
+        //comment
 
         HomePage homePage = new HomePage();
 
