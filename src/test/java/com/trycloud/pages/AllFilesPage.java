@@ -2,59 +2,62 @@ package com.trycloud.pages;
 
 import com.trycloud.pages.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class AllFilesPage extends BasePage {
-    public String expectedTitleFiles="Files - Trycloud QA";
-    public String expectedTitleActivities="Activity - Trycloud QA";
-    public String expectedTitleGallery="Gallery - Tryclou ";
-    public String expectedTitleTalk="Talk - Trycloud QA";
-    public String expectedTitleCalendar="February 2021 - Calendar - Trycloud QA";
-    public String expectedTitleDeck="Deck - Trycloud QA";
-    public String expectedTitleContacts="Contacts - Trycloud QA";
+    public AllFilesPage(){
+        PageFactory.initElements(driver, this);
+    }
+    public String expectedTitleFiles="Files - Trycloud";
+    public String expectedTitleActivities="Activity - Trycloud";
+    public String expectedTitleGallery="Gallery - Trycloud ";
+    public String expectedTitleCalendar="February 2021 - Calendar - Trycloud";
+    public String expectedTitleDeck="Deck - Trycloud";
+    public String expectedTitleContacts="Contacts - Trycloud";
+    public String expectedTitleNotes;
 
- 
+    @FindBy(xpath = "//a[@href='/index.php/apps/files/']")
+    public WebElement filesBtn;
+    @FindBy(xpath = "//a[@href='/index.php/apps/activity/']")
+    public WebElement activityBtn;
+    @FindBy(xpath = "//a[@href='/index.php/apps/photos/']")
+    public WebElement photosBtn;
+    @FindBy(xpath = "//a[@href='/index.php/apps/calendar/']")
+    public WebElement calendarBtn;
+    @FindBy(xpath = "//a[@href='/index.php/apps/contacts/']")
+    public WebElement contactsBtn;
+    @FindBy(xpath = "//a[@href='/index.php/apps/deck/']")
+    public WebElement deckBtn;
+
     public String notesGetActualTitle() {
         driver.findElement(By.xpath("//*[@id='appmenu']/li[7]")).click();
-
         return driver.getTitle();
     }
-
-    public String filesGetActualTitle() {
-
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/files/']")).click();
-        return driver.getTitle();
-    }
-
-
     public String activityGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/activity/']")).click();
+        activityBtn.click();
         return driver.getTitle();
     }
     public String galleryGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/photos/']")).click();
+        photosBtn.click();
         return driver.getTitle();
     }
- 
- 
     public String contactsGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/contacts/']")).click();
+        contactsBtn.click();
+        return driver.getTitle();
+    }
+    public String calendarGetActualTitle(){
+        calendarBtn.click();
         return driver.getTitle();
     }
     public String deckGetActualTitle(){
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/deck/']")).click();
+        deckBtn.click();
         return driver.getTitle();
     }
 
 
-    public String talkGetActualTitle() {
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/spreed/']")).click();
-        return driver.getTitle();
-    }
 
-    public String calendarGetActualTitle() {
-        driver.findElement(By.xpath("//body//div//a[@href='/index.php/apps/calendar/']")).click();
-        return driver.getTitle();
-    }
 
 }
