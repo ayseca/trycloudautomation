@@ -24,6 +24,6 @@ public class VerifyUsersCanSearch extends TestBase {
         Thread.sleep(2000);
         Assert.assertTrue(driver.findElement(By.xpath("//h3[@class='unified-search__result-line-one']")).isDisplayed());
     }
-
+//commit
 
 }
