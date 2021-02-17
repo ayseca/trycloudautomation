@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class FileModulePage extends BasePage { //Base page driver
+public class  FileModulePage extends BasePage { //Base page driver
     @FindBy(xpath = "(//a[@href='/index.php/apps/files/'])[1]")
     public WebElement fileIconXpath;
 
